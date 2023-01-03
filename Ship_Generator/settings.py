@@ -35,8 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'rest_framework'
-    'Starship_Generator'
+    'rest_framework',
+    'Starship_Generator',
 ]
 
 MIDDLEWARE = [
