@@ -105,7 +105,6 @@ class PersonnelWeaponsLongarm(models.Model):
 class PersonnelWeaponsHeavy(models.Model):
     weapon = models.CharField(max_length=48)
     level = models.IntegerField()
-
 # class CustomSelect(models.Model):
 #     user = models.ForeignKey(User, on_delete=models.CASCADE)
 #     powercore = models.ForeignKey(PowerCores, on_delete=models.CASCADE, null =True)

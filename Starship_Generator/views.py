@@ -1,9 +1,10 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework import status
+from .models import CustomSelect, Tiers, Frames, PowerCores, Thrusters, Armors, Computers, CrewQuarters, DefensiveCountermeasures, DriftEngines, ExpansionBays, Security, Sensors, Shields, Weapons, PersonnelWeaponsHeavy, PersonnelWeaponsLongarm
 from .serailizers import CustomSelectSerializer, DefensiveCountermeasuresSerializer, TiersSerializer, FramesSerializer, PowerCoresSerializer, ThrustersSerializer, ArmorsSerializer, ComputersSerializer, CrewQuartersSerializer, DefensiveCountermeasures, DriftEnginesSerializer, ExpansionBaysSerializer, SecuritySerializer, SensorsSerializer, ShieldsSerializer, WeaponsSerializer, PersonnelWeaponsHeavySerializer, PersonnelWeaponsLongarmSerializer
 
 @api_view(['GET'])
-@permission_classes([AllowAny])
 def get_tiers(request):
     tier = Tiers.objects.all()
     serializer = TiersSerializer(tier, many=True)
@@ -12,7 +13,6 @@ def get_tiers(request):
     have an epic tier system'''
 
 @api_view(['GET'])
-@permission_classes([AllowAny])
 def get_frames(request):
     frame = Frames.objects.all()
     serializer = FramesSerializer(frame, many=True)
@@ -21,7 +21,6 @@ def get_frames(request):
     All ships should be able to fit within the pre-existing frame styles'''
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_powercores(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -36,7 +35,6 @@ def get_powercores(request):
         return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_thrusters(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -51,7 +49,6 @@ def get_thrusters(request):
         return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_armors(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -66,7 +63,6 @@ def get_armors(request):
         return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_computers(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -81,7 +77,6 @@ def get_computers(request):
         return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_crewquarters(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -96,7 +91,6 @@ def get_crewquarters(request):
         return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_defensivecountermeasures(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -111,7 +105,6 @@ def get_defensivecountermeasures(request):
         return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_driftengines(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -126,7 +119,6 @@ def get_driftengines(request):
         return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_expansionbays(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -141,7 +133,6 @@ def get_expansionbays(request):
         return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_security(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -156,7 +147,6 @@ def get_security(request):
         return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_sensors(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -171,7 +161,6 @@ def get_sensors(request):
         return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_shields(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -186,7 +175,6 @@ def get_shields(request):
         return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_weapons(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -201,7 +189,6 @@ def get_weapons(request):
         return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_personnelweaponsheavy(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -223,7 +210,6 @@ def get_personnelweaponsheavy(request):
         instated merely to ensure a passing grade in my project.'''
 
 @api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
 def get_personnelweaponslongarm(request):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
@@ -243,24 +229,22 @@ def get_personnelweaponslongarm(request):
         inner-ship defense, it is not advised due to the implications. This was
         instated merely to ensure a passing grade in my project.'''
 
-@api_view(['GET', 'POST'])
-@permission_classes([AllowAny])
-def get_customselect(request):
-    print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
-    if request.method == 'POST':
-        serializer = CustomSelectSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save(user=request.user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == 'GET':
-        menuItems = CustomSelect.objects.filter(user_id=request.user.id)
-        serializer = CustomSelectSerializer(menuItems, many=True)
-        return Response(serializer.data)
+# @api_view(['GET', 'POST'])
+# def get_customselect(request):
+#     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
+#     if request.method == 'POST':
+#         serializer = CustomSelectSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save(user=request.user)
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     elif request.method == 'GET':
+#         menuItems = CustomSelect.objects.filter(user_id=request.user.id)
+#         serializer = CustomSelectSerializer(menuItems, many=True)
+#         return Response(serializer.data)
 
-@api_view(['GET'])
-@permission_classes([AllowAny])
-def get_customselectlist(request):
-    menuItems = CustomSelect.objects.filter(user_id=request.user.id)
-    serializer = CustomSelectSerializer(menuItems, many=True)
-    return Response(serializer.data)
+# @api_view(['GET'])
+# def get_customselectlist(request):
+#     menuItems = CustomSelect.objects.filter(user_id=request.user.id)
+#     serializer = CustomSelectSerializer(menuItems, many=True)
+#     return Response(serializer.data)

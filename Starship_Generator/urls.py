@@ -4,7 +4,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/auth/', include('authentication.urls')),
     path('api/tiers/', views.get_tiers),
     path('api/frames/', views.get_frames),
     path('api/powercores/', views.get_powercores),
